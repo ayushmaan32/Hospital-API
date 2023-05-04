@@ -1,9 +1,12 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 
 const port = 8000;
 
 const app = express();
 const db = require("./config/mongoose");
+
+app.use(bodyParser.json());
 
 //use express router
 app.use("/", require("./routes"));
