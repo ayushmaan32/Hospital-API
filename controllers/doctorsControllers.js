@@ -1,7 +1,7 @@
 const Doctor = require("../models/doctors");
 
 module.exports.register = async function (req, res) {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     let doctor = await Doctor.findOne({ email: req.body.email });
 
