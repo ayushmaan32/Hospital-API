@@ -1,4 +1,4 @@
-const Doctor = require("../models/doctors");
+const Doctor = require("../../../models/doctors");
 
 module.exports.register = async function (req, res) {
   // console.log(req.body);

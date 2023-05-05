@@ -1,4 +1,4 @@
-const Patients = require("../models/patient");
+const Patients = require("../../../models/patient");
 
 module.exports.createPatient = async function (req, res) {
   console.log(req.body);
@@ -8,7 +8,9 @@ module.exports.createPatient = async function (req, res) {
     });
 
     if (patient) {
-      return res.status(400).json({ message: "Patient already exists" });
+      return res
+        .status(400)
+        .json({ message: "Patient already exists", patient });
     } else {
       patient = await Patients.create({
         name: req.body.name,

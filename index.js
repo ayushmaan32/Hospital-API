@@ -6,6 +6,7 @@ const port = 8000;
 const app = express();
 const db = require("./config/mongoose");
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //use express router
