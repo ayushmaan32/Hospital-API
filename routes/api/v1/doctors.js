@@ -6,4 +6,6 @@ const doctorsController = require("../../../controllers/api/v1/doctors_api_contr
 
 router.post("/register", doctorsController.register);
 
+router.post("/login", doctorsController.login);
+
 module.exports = router;
