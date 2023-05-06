@@ -10,19 +10,18 @@ let opts = {
 };
 
 passport.use(
-  new JWTStrategy(opts, function (jwtPayLoad, done) {
-    Doctor.findById(jwtPayLoad._id, function (err, doctor) {
-      if (err) {
-        console.log("Error in finding Doctor from JWT");
-        return;
-      }
-
+  new JWTStrategy(opts, async function (jwtPayLoad, done) {
+    try {
+      const doctor = await Doctor.findById(jwtPayLoad._id);
       if (doctor) {
         return done(null, doctor);
       } else {
         return done(null, false);
       }
-    });
+    } catch (err) {
+      console.log("Error in finding Doctor from JWT");
+      return done(err, false);
+    }
   })
 );
 
