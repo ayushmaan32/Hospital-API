@@ -15,6 +15,7 @@ module.exports.createPatient = async function (req, res) {
       patient = await Patients.create({
         name: req.body.name,
         phone_Number: req.body.phone_Number,
+        doctor: req.user._id,
       });
 
       return res.status(200).json({
