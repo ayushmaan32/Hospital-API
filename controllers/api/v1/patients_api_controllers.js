@@ -1,12 +1,13 @@
 const Patients = require("../../../models/patient");
 
+//creating patients action
 module.exports.createPatient = async function (req, res) {
   console.log(req.body);
   try {
     let patient = await Patients.findOne({
       phone_Number: req.body.phone_Number,
     });
-
+    // if patient found
     if (patient) {
       return res
         .status(400)

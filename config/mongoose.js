@@ -6,6 +6,7 @@ mongoose.connect("mongodb://localhost/Hospital_Api", {
   family: 4,
 });
 
+//Setting up connection to MONGODB
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "error on connectiong to db"));
 db.once("open", function () {

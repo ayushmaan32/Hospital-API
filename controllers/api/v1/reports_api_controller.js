@@ -47,7 +47,7 @@ module.exports.createReport = async function (req, res) {
   }
 };
 
-//Fetching all report of patient
+//Fetching all report of patient action
 
 module.exports.allReports = async function (req, res) {
   try {
@@ -69,15 +69,6 @@ module.exports.allReports = async function (req, res) {
 module.exports.reportsByStatus = async function (req, res) {
   try {
     //FINDING THE REPORT BY STATUS
-    // let reports = await Report.find({ status: req.params.status });
-    // console.log(reports);
-    // return res.status(200).json({
-    //   message: "Reports of patients having status " + req.params.status,
-    //   data: {
-    //     reports: reports,
-    //   },
-    // });
-
     let reports = await Report.find({ status: req.params.status }).exec();
 
     return res.status(200).json({

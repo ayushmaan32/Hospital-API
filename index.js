@@ -1,3 +1,4 @@
+// importing modules
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -8,14 +9,17 @@ const db = require("./config/mongoose");
 const passport = require("passport");
 const passportJWT = require("./config/passport-jwt-strategy");
 
+// body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//
 app.use(passport.initialize());
 
 //use express router
 app.use("/", require("./routes"));
 
+// server listening on port 8000
 app.listen(port, function (err) {
   if (err) {
     console.log(`Error in connecting to server on port: ${port}`);

@@ -1,13 +1,15 @@
 const Doctor = require("../../../models/doctors");
 const jwt = require("jsonwebtoken");
 
+// Doctor register action
 module.exports.register = async function (req, res) {
   // console.log(req.body);
   try {
     let doctor = await Doctor.findOne({ email: req.body.email });
 
+    // if doctor found
     if (doctor) {
-      return res.status(400).json({
+      return res.status(200).json({
         message: "Doctor already exists",
       });
     } else {
@@ -32,7 +34,7 @@ module.exports.register = async function (req, res) {
   }
 };
 
-//DOCTOR LOGIN ACTION
+//Doctor login action
 module.exports.login = async function (req, res) {
   try {
     let doctor = await Doctor.findOne({ email: req.body.email });
